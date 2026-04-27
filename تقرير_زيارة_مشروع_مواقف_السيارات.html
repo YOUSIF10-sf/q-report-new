@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير زيارة استكشافية - مشروع مواقف سيارات مسجد القطري</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 20px;
+            color: #1d1d1f;
+            line-height: 1.6;
+            font-size: 11pt;
+            min-height: 100vh;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        /* Header */
+        .header {
+            background: #ffffff;
+            color: #1d1d1f;
+            padding: 10mm 20mm;
+            position: relative;
+            border-bottom: 2px solid #FF6B35;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+        
+        .header-logo {
+            width: 40mm;
+            height: 40mm;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-logo img {
+            width: 35mm;
+            height: 35mm;
+            object-fit: contain;
+        }
+        
+        .header-info {
+            text-align: center;
+            flex: 1;
+            margin: 0 15mm;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: #f5f5f7;
+            color: #FF6B35;
+            padding: 1.5mm 5mm;
+            border-radius: 3mm;
+            font-size: 8pt;
+            font-weight: 600;
+            margin-bottom: 2mm;
+            letter-spacing: 0.3px;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .header-title {
+            font-size: 20pt;
+            font-weight: 700;
+            margin-bottom: 1.5mm;
+            color: #1d1d1f;
+            letter-spacing: -0.3px;
+        }
+        
+        .header-subtitle {
+            font-size: 11pt;
+            font-weight: 500;
+            color: #6e6e73;
+            margin-bottom: 1.5mm;
+        }
+        
+        .header-meta {
+            font-size: 8pt;
+            color: #86868b;
+            font-weight: 400;
+        }
+        
+        /* Content */
+        .content {
+            padding: 12mm 20mm;
+        }
+        
+        .section {
+            margin-bottom: 10mm;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5mm;
+            padding-bottom: 3mm;
+            border-bottom: 3px solid #2c3e50;
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 30%;
+            height: 3px;
+            background: linear-gradient(90deg, #FF6B35, transparent);
+        }
+        
+        .section-number {
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
+            color: white;
+            width: 10mm;
+            height: 10mm;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 11pt;
+            margin-left: 4mm;
+            box-shadow: 0 2mm 8mm rgba(255, 107, 53, 0.4);
+        }
+        
+        .section-title {
+            font-size: 15pt;
+            font-weight: 800;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .section-content {
+            font-size: 10pt;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .section-content p {
+            margin-bottom: 3mm;
+        }
+        
+        /* Card Style */
+        .card {
+            background: white;
+            border-radius: 8mm;
+            padding: 6mm;
+            margin: 4mm 0;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 1mm 3mm rgba(0,0,0,0.02);
+        }
+        
+        .card-orange {
+            border: 1px solid #FF6B35;
+            border-left: 3mm solid #FF6B35;
+        }
+        
+        .card h4 {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 3mm;
+        }
+        
+        .card p {
+            font-size: 9pt;
+            color: #424245;
+            margin-bottom: 2mm;
+        }
+        
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5mm;
+            margin: 6mm 0;
+        }
+        
+        .info-item {
+            background: #f5f5f7;
+            padding: 5mm;
+            border-radius: 6mm;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .info-label {
+            font-size: 8pt;
+            color: #86868b;
+            font-weight: 500;
+            margin-bottom: 2mm;
+        }
+        
+        .info-value {
+            font-size: 11pt;
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+        
+        .info-value.highlight {
+            color: #FF6B35;
+            font-size: 14pt;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5mm;
+            margin: 6mm 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 6mm;
+            border-radius: 8mm;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+            box-shadow: 0 1mm 3mm rgba(0,0,0,0.02);
+        }
+        
+        .stat-number {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #FF6B35;
+            line-height: 1;
+            margin-bottom: 2mm;
+        }
+        
+        .stat-label {
+            font-size: 9pt;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+        
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 6mm 0;
+            font-size: 10pt;
+            background: white;
+            border-radius: 6mm;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .data-table thead {
+            background: #f5f5f7;
+        }
+        
+        .data-table th {
+            padding: 4mm 6mm;
+            text-align: center;
+            font-weight: 600;
+            color: #1d1d1f;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .data-table td {
+            padding: 4mm 6mm;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+            color: #424245;
+        }
+        
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .total-row {
+            background: #f5f5f7 !important;
+            font-weight: 600;
+        }
+        
+        /* Images */
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5mm;
+            margin: 6mm 0;
+        }
+        
+        .image-card {
+            background: white;
+            border-radius: 4mm;
+            overflow: hidden;
+            box-shadow: 0 1mm 2mm rgba(0,0,0,0.05);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 40mm;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            padding: 3mm;
+            background: #f9f9f9;
+            color: #1d1d1f;
+            font-size: 8pt;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* List Style */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .styled-list li {
+            padding: 2mm 0;
+            padding-right: 15mm;
+            position: relative;
+            font-size: 9pt;
+            color: #424245;
+        }
+        
+        .styled-list li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: #FF6B35;
+            font-weight: 700;
+            font-size: 12pt;
+        }
+        
+        /* Link */
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 2mm;
+            color: #FF6B35;
+            text-decoration: none;
+            font-size: 9pt;
+            font-weight: 500;
+            padding: 2mm 4mm;
+            background: #fff5f0;
+            border-radius: 4mm;
+            border: 1px solid #FF6B35;
+        }
+        
+        .map-link:hover {
+            background: #FFE8D6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f5f5f7;
+            color: #86868b;
+            padding: 5mm 20mm;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .footer p {
+            font-size: 8pt;
+            margin: 1mm 0;
+        }
+        
+        .footer .author {
+            color: #1d1d1f;
+            font-weight: 600;
+            font-size: 9pt;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 12mm;
+            left: 20mm;
+            font-size: 8pt;
+            color: #86868b;
+        }
+        
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+                width: 210mm;
+                height: 297mm;
+                overflow: hidden;
+            }
+            .page:not(:first-child) .header {
+                display: none;
+            }
+            .page:not(:last-child) .footer {
+                display: none;
+            }
+            .header {
+                background: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border-bottom: 2px solid #FF6B35 !important;
+            }
+            .content {
+                padding: 8mm 15mm;
+            }
+            .section {
+                margin-bottom: 6mm;
+                page-break-inside: avoid;
+            }
+            .card {
+                page-break-inside: avoid;
+                margin-bottom: 3mm;
+            }
+            .image-card {
+                page-break-inside: avoid;
+            }
+            .images-grid {
+                gap: 3mm;
+            }
+            .image-card img {
+                height: 35mm;
+            }
+            iframe {
+                display: none;
+            }
+            .footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-top: 1px solid #e5e5e5;
+            }
+            .page-number {
+                position: absolute;
+                bottom: 8mm;
+                left: 15mm;
+            }
+        }
+        
+        @media screen and (max-width: 900px) {
+            .page {
+                width: 100%;
+                margin: 10px;
+            }
+            .images-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="img/logo.png" alt="Easy Parking Logo">
+                </div>
+                <div class="header-info">
+                    <div class="header-badge">تقرير زيارة استكشافية</div>
+                    <h1 class="header-title">مشروع مواقف سيارات مسجد القطري</h1>
+                    <h2 class="header-subtitle">مكة المكرمة - المملكة العربية السعودية</h2>
+                    <div class="header-meta">الغرض: زيارة استكشافية للموقع والاطلاع على الوضع الحالي</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Section 1: Visit Purpose -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">الغرض من الزيارة</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card card-orange">
+                        <h4>زيارة استكشافية للموقع</h4>
+                        <p>تمت زيارة موقع مشروع مواقف سيارات مسجد القطري زيارة استكشافية بهدف التعرف على الموقع ودراسة الوضع القائم ميدانياً، حيث تم التجول داخل الموقع والاطلاع على المساحات المتوفرة ومداخل ومخارج المواقف وآلية الحركة المرورية المحيطة. كما تم توثيق أجزاء الموقع المختلفة من خلال التقاط الصور اللازمة للاستفادة منها في الدراسة والمراجعة لاحقاً.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Location Info -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">معلومات الموقع</h2>
+                </div>
+                <div class="section-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">المنطقة</div>
+                            <div class="info-value">مكة المكرمة</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">الموقع</div>
+                            <div class="info-value">مشروع مواقف سيارات مسجد القطري</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>الإحداثيات</h4>
+                        <a href="https://maps.app.goo.gl/bFMRFD1qDKWAYocH7?g_st=aw" target="_blank" class="map-link">📍 عرض الموقع على الخريطة</a>
+                        <div style="margin-top: 5mm; border-radius: 4mm; overflow: hidden; border: 1px solid #e5e5e5; max-width: 48%;">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.123456789!2d39.856789!3d21.423456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDI1JzI0LjQiTiAzOcKwNTEnMjQuNCJF!5e0!3m2!1sar!2ssa!4v1600000000000!5m2!1sar!2ssa" 
+                                width="100%" 
+                                height="40mm" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>الحركة المرورية المحيطة</h4>
+                        <p>المسجد محاط بشارع الإحسان شمالاً وغرباً، والشارع الغربي مقابل المسجد مرصوص بعدة فنادق ومحلات تجارية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Parking Capacity -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">السعة الاستيعابية للمواقف</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>مساحة المواقف</h4>
+                        <p>يتكون من طابقين سفلية، الطابق الأول يحتوي على عدد 186 موقف، والطابق الثاني يحتوي على عدد 224 موقف.</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">186</div>
+                            <div class="stat-label">الطابق الأول</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">224</div>
+                            <div class="stat-label">الطابق الثاني</div>
+                        </div>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>الطابق</th>
+                                <th>عدد المواقف</th>
+                                <th>الإجمالي</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>الطابق الأول</td>
+                                <td>186 موقف</td>
+                                <td>186</td>
+                            </tr>
+                            <tr>
+                                <td>الطابق الثاني</td>
+                                <td>224 موقف</td>
+                                <td>224</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>الإجمالي</strong></td>
+                                <td><strong>410 مواقف</strong></td>
+                                <td><strong>410</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 4: Entrances and Exits -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">المداخل والمخارج</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>عدد المداخل والمخارج</h4>
+                        <ul class="styled-list">
+                            <li>يوجد عدد اثنين مداخل رئيسية للمواقف السفلية تؤدي للطابق الأول وعدد اثنين مخارج</li>
+                            <li>يوجد مدخل ومخرج منفصلين يؤديان إلى مواقف الطابق الثاني السفلي</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card card-orange">
+                        <h4>حالة البوابات</h4>
+                        <p>سليمة ما عدا إحدى المداخل الرئيسية معطلة ولا تفتح بجهاز التحكم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Site Images -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">توثيق الموقع بالصور</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <p>تم توثيق الموقع من عدة زوايا لتغطية كافة جوانب المشروع والمرافق المتوفرة.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/Beautiful image of the site.png" alt="منظر عام للموقع">
+                            <div class="image-caption">منظر عام للموقع</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Beautiful image of the site2.png" alt="منظر عام للموقع 2">
+                            <div class="image-caption">منظر عام للموقع 2</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Entrance.jpeg" alt="المدخل الرئيسي">
+                            <div class="image-caption">المدخل الرئيسي</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Visitors Entrance.jpeg" alt="مدخل الزوار">
+                            <div class="image-caption">مدخل الزوار</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Additional entrance.jpeg" alt="مدخل إضافي">
+                            <div class="image-caption">مدخل إضافي</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Entrance to the parking area from the main road.jpeg" alt="مدخل المواقف من الطريق">
+                            <div class="image-caption">مدخل المواقف من الطريق</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/public road.jpeg" alt="الطريق العام">
+                            <div class="image-caption">الطريق العام</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Photos of the public road near the site.png" alt="الطريق العام القريب">
+                            <div class="image-caption">الطريق العام القريب</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Public Road Parking.jpeg" alt="مواقف الطريق العام">
+                            <div class="image-caption">مواقف الطريق العام</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>تم إعداد هذا التقرير بواسطة: <span class="author">Yousif Tariq</span></p>
+            <p>2026</p>
+        </div>
+        <div class="page-number">الصفحة 1 من 2</div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="img/logo.png" alt="Easy Parking Logo">
+                </div>
+                <div class="header-info">
+                    <div class="header-badge">تقرير زيارة استكشافية</div>
+                    <h1 class="header-title">مشروع مواقف سيارات مسجد القطري</h1>
+                    <h2 class="header-subtitle">مكة المكرمة - المملكة العربية السعودية</h2>
+                    <div class="header-meta">الغرض: زيارة استكشافية للموقع والاطلاع على الوضع الحالي</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Section 6: Parking Floors and Facilities -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">الأدوار والمرافق الداخلية</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <p>تم فحص الأدوار والمرافق الداخلية بدقة للتأكد من جودة البنية والتشغيل.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/Parking first floor.jpeg" alt="الدور الأول">
+                            <div class="image-caption">الدور الأول - المواقف</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Park the second floor.jpeg" alt="الدور الثاني">
+                            <div class="image-caption">الدور الثاني - المواقف</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Park shape.jpeg" alt="تصميم المواقف">
+                            <div class="image-caption">تصميم المواقف</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/First floor elevators.jpeg" alt="المصاعد - الدور الأول">
+                            <div class="image-caption">المصاعد - الدور الأول</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Women's stance.jpeg" alt="مواقف النساء">
+                            <div class="image-caption">مواقف النساء</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/fire extinguishers.jpeg" alt="طفايات الحريق">
+                            <div class="image-caption">طفايات الحريق</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Stairs.jpeg" alt="السلالم">
+                            <div class="image-caption">السلالم</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Entrance to the second floor.jpeg" alt="مدخل الطابق الثاني">
+                            <div class="image-caption">مدخل الطابق الثاني</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Directional signs.jpeg" alt="اللوحات الإرشادية">
+                            <div class="image-caption">اللوحات الإرشادية</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Gates and Control Systems -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2 class="section-title">البوابات ونظام التحكم</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <p>تم فحص جميع البوابات وأجهزة التحكم للتأكد من كفاءة التشغيل.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/Current gate devices.jpeg" alt="أجهزة البوابات الحالية">
+                            <div class="image-caption">أجهزة البوابات الحالية</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Exit Gate.jpeg" alt="بوابة الخروج">
+                            <div class="image-caption">بوابة الخروج</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/Visitor drop-off counter.jpeg" alt="منطقة إنزال الزوار">
+                            <div class="image-caption">منطقة إنزال الزوار</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8: Site Conditions -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2 class="section-title">حالة الموقع والمرافق</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>حالة الأرضيات والأرصفة والممرات</h4>
+                        <p>الأرضية مطلية بمادة الإيبوكسي وحالتها سليمة ومستوى النظافة ممتاز. التشطيبات عالية الجودة وتضمن سهولة الحركة.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>مستوى النظافة العامة بالموقع</h4>
+                        <p>مستوى النظافة ممتاز في جميع الأجزاء، مما يعكس الاهتمام بصيانة الموقع.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>اللوحات الإرشادية والتنظيمية المتوفرة</h4>
+                        <p>متوفرة بشكل كامل ويوجد لافتات واضحة للمداخل والمخارج وعند المصاعد توجد لافتات إرشادية تسهل التنقل.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>الإنارة والخدمات الأساسية بالموقع</h4>
+                        <p>يوجد إنارة كافية في جميع أجزاء المواقف مع توزيع جيد يضمان الرؤية الواضحة والأمان.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 9: Surrounding Area -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2 class="section-title">المنطقة المحيطة</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <p>الموقع محاط بمنطقة حيوية تحتوي على فنادق ومحلات تجارية، مما يزيد من أهمية المواقف.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/Nearby hotels.jpeg" alt="الفنادق القريبة">
+                            <div class="image-caption">الفنادق القريبة</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/الجوار.jpeg" alt="الجوار المحيط">
+                            <div class="image-caption">الجوار المحيط</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 10: Observations -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">الملاحظات العامة والتحديات المحتملة</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card card-orange">
+                        <h4>الملاحظات الهامة</h4>
+                        <ul class="styled-list">
+                            <li>إحدى المداخل الرئيسية معطلة ولا تفتح بجهاز التحكم - تحتاج لإصلاح عاجل</li>
+                            <li>الحاجة لصيانة دورية للبوابات لضمان عملها بكفاءة مستمرة</li>
+                            <li>ضرورة مراجعة نظام التحكم في المداخل لتحسين الأداء</li>
+                            <li>توصية بتطوير نظام الدفع الإلكتروني لتسهيل العمليات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 11: Conclusion -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">11</div>
+                    <h2 class="section-title">الخاتمة والتوصيات</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>ملخص الزيارة</h4>
+                        <p>تمت الزيارة الاستكشافية بنجاح وتوثيق جميع جوانب الموقع. المشروع يتميز بموقعه الاستراتيجي في قلب مكة المكرمة وسعته الاستيعابية الجيدة (410 موقف). البنية التحتية للموقع ممتازة مع مستوى عالٍ من النظافة والصيانة.</p>
+                    </div>
+                    <div class="card">
+                        <h4>التوصيات</h4>
+                        <ul class="styled-list">
+                            <li>إصلاح البوابة المعطلة فوراً لضمان عمل جميع المداخل</li>
+                            <li>إنشاء جدول صيانة دوري للبوابات وأجهزة التحكم</li>
+                            <li>النظر في إضافة نظام حجز إلكتروني للمواقف</li>
+                            <li>زيادة عدد اللوحات الإرشادية لتحسين تجربة المستخدم</li>
+                            <li>تطوير نظام مراقبة ذكي لإدارة حركة السيارات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>تم إعداد هذا التقرير بواسطة: <span class="author">Yousif Tariq</span></p>
+            <p>2026-04-27</p>
+        </div>
+        <div class="page-number">الصفحة 2 من 4</div>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="img/logo.png" alt="Easy Parking Logo">
+                </div>
+                <div class="header-info">
+                    <div class="header-badge">تقرير زيارة استكشافية</div>
+                    <h1 class="header-title">مشروع مواقف سيارات مسجد القطري</h1>
+                    <h2 class="header-subtitle">مكة المكرمة - المملكة العربية السعودية</h2>
+                    <div class="header-meta">الغرض: زيارة استكشافية للموقع والاطلاع على الوضع الحالي</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Section 12: Detailed Site Documentation -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">12</div>
+                    <h2 class="section-title">توثيق تفصيلي للموقع</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>نظرة عامة على التوثيق</h4>
+                        <p>تم توثيق الموقع بشكل شامل من خلال صور متعددة تغطي كافة الجوانب التشغيلية والبنية التحتية. هذا التوثيق يوفر رؤية كاملة للمشروع ويساعد في اتخاذ القرارات المستقبلية.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.12 AM.jpeg" alt="توثيق 1">
+                            <div class="image-caption">توثيق الموقع - زاوية 1</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.22 AM.jpeg" alt="توثيق 2">
+                            <div class="image-caption">توثيق الموقع - زاوية 2</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.23 AM (1).jpeg" alt="توثيق 3">
+                            <div class="image-caption">توثيق الموقع - زاوية 3</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.24 AM (1).jpeg" alt="توثيق 4">
+                            <div class="image-caption">توثيق الموقع - زاوية 4</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.24 AM (2).jpeg" alt="توثيق 5">
+                            <div class="image-caption">توثيق الموقع - زاوية 5</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.24 AM.jpeg" alt="توثيق 6">
+                            <div class="image-caption">توثيق الموقع - زاوية 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 13: Interior Facilities -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">13</div>
+                    <h2 class="section-title">المرافق الداخلية التفصيلية</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>تفاصيل المرافق الداخلية</h4>
+                        <p>تم فحص جميع المرافق الداخلية بدقة شاملة لضمان جودة التشغيل وسلامة المستخدمين. تشمل المرافق: المصاعد، السلالم، أنظمة الإضاءة، واللوحات الإرشادية.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.26 AM.jpeg" alt="مرافق داخلية 1">
+                            <div class="image-caption">مرافق داخلية - تفصيل 1</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.27 AM (1).jpeg" alt="مرافق داخلية 2">
+                            <div class="image-caption">مرافق داخلية - تفصيل 2</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.28 AM.jpeg" alt="مرافق داخلية 3">
+                            <div class="image-caption">مرافق داخلية - تفصيل 3</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.29 AM (1).jpeg" alt="مرافق داخلية 4">
+                            <div class="image-caption">مرافق داخلية - تفصيل 4</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.29 AM (2).jpeg" alt="مرافق داخلية 5">
+                            <div class="image-caption">مرافق داخلية - تفصيل 5</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.29 AM (3).jpeg" alt="مرافق داخلية 6">
+                            <div class="image-caption">مرافق داخلية - تفصيل 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 14: Access and Movement -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">14</div>
+                    <h2 class="section-title">أنظمة الوصول والحركة</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>تحليل أنظمة الوصول</h4>
+                        <p>تم دراسة أنظمة الوصول والحركة داخل المواقف بشكل دقيق. النظام الحالي يوفر سهولة في الدخول والخروج مع توزيع جيد للممرات والمسارات.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.29 AM.jpeg" alt="الوصول 1">
+                            <div class="image-caption">نظام الوصول - تفصيل 1</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.30 AM (1).jpeg" alt="الوصول 2">
+                            <div class="image-caption">نظام الوصول - تفصيل 2</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.30 AM (2).jpeg" alt="الوصول 3">
+                            <div class="image-caption">نظام الوصول - تفصيل 3</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.30 AM.jpeg" alt="الوصول 4">
+                            <div class="image-caption">نظام الوصول - تفصيل 4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>تم إعداد هذا التقرير بواسطة: <span class="author">Yousif Tariq</span></p>
+            <p>2026-04-27</p>
+        </div>
+        <div class="page-number">الصفحة 3 من 4</div>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="img/logo.png" alt="Easy Parking Logo">
+                </div>
+                <div class="header-info">
+                    <div class="header-badge">تقرير زيارة استكشافية</div>
+                    <h1 class="header-title">مشروع مواقف سيارات مسجد القطري</h1>
+                    <h2 class="header-subtitle">مكة المكرمة - المملكة العربية السعودية</h2>
+                    <div class="header-meta">الغرض: زيارة استكشافية للموقع والاطلاع على الوضع الحالي</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Section 15: Technical Systems -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">15</div>
+                    <h2 class="section-title">الأنظمة التقنية</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>الأنظمة التقنية الموجودة</h4>
+                        <p>يتميز المشروع بوجود أنظمة تقنية متطورة تشمل أنظمة التحكم في البوابات، الإضاءة الذكية، وأنظمة المراقبة الأمنية.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.31 AM (1).jpeg" alt="أنظمة تقنية 1">
+                            <div class="image-caption">الأنظمة التقنية - تفصيل 1</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.31 AM (2).jpeg" alt="أنظمة تقنية 2">
+                            <div class="image-caption">الأنظمة التقنية - تفصيل 2</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.31 AM.jpeg" alt="أنظمة تقنية 3">
+                            <div class="image-caption">الأنظمة التقنية - تفصيل 3</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.32 AM (1).jpeg" alt="أنظمة تقنية 4">
+                            <div class="image-caption">الأنظمة التقنية - تفصيل 4</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.32 AM (2).jpeg" alt="أنظمة تقنية 5">
+                            <div class="image-caption">الأنظمة التقنية - تفصيل 5</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.32 AM (3).jpeg" alt="أنظمة تقنية 6">
+                            <div class="image-caption">الأنظمة التقنية - تفصيل 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 16: Safety and Security -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">16</div>
+                    <h2 class="section-title">السلامة والأمان</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>إجراءات السلامة والأمان</h4>
+                        <p>تم التأكد من توفر جميع إجراءات السلامة والأمان اللازمة في الموقع، بما في ذلك طفايات الحريق، أنظمة الإضاءة الطارئة، ومخارج الطوارئ.</p>
+                    </div>
+                    <div class="images-grid">
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.32 AM (4).jpeg" alt="السلامة 1">
+                            <div class="image-caption">إجراءات السلامة - تفصيل 1</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.32 AM (5).jpeg" alt="السلامة 2">
+                            <div class="image-caption">إجراءات السلامة - تفصيل 2</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.32 AM.jpeg" alt="السلامة 3">
+                            <div class="image-caption">إجراءات السلامة - تفصيل 3</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.33 AM (1).jpeg" alt="السلامة 4">
+                            <div class="image-caption">إجراءات السلامة - تفصيل 4</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.33 AM (2).jpeg" alt="السلامة 5">
+                            <div class="image-caption">إجراءات السلامة - تفصيل 5</div>
+                        </div>
+                        <div class="image-card">
+                            <img src="img/WhatsApp Image 2026-04-27 at 11.58.33 AM.jpeg" alt="السلامة 6">
+                            <div class="image-caption">إجراءات السلامة - تفصيل 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 17: Final Assessment -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">17</div>
+                    <h2 class="section-title">التقييم النهائي</h2>
+                </div>
+                <div class="section-content">
+                    <div class="card">
+                        <h4>التقييم الشامل للمشروع</h4>
+                        <p>بناءً على الزيارة الاستكشافية الشاملة، يمكن القول أن مشروع مواقف سيارات مسجد القطري يمثل نموذجاً متطوراً لإدارة المواقف. المشروع يتميز بموقعه الاستراتيجي، سعته الاستيعابية الكبيرة (410 موقف)، وبنيته التحتية الممتازة.</p>
+                    </div>
+                    <div class="card">
+                        <h4>نقاط القوة الرئيسية</h4>
+                        <ul class="styled-list">
+                            <li>موقع استراتيجي في قلب مكة المكرمة</li>
+                            <li>سعة استيعابية كبيرة تصل إلى 410 موقف</li>
+                            <li>بنية تحتية ممتازة مع تشطيبات عالية الجودة</li>
+                            <li>مستوى نظافة عالي في جميع الأجزاء</li>
+                            <li>أنظمة إرشادية واضحة وكافية</li>
+                            <li>إضاءة جيدة في جميع الأجزاء</li>
+                        </ul>
+                    </div>
+                    <div class="card card-orange">
+                        <h4>التحديات والحلول المقترحة</h4>
+                        <ul class="styled-list">
+                            <li>البوابة المعطلة: إصلاح فوري لضمان عمل جميع المداخل</li>
+                            <li>نظام التحكم: تطوير نظام ذكي لإدارة البوابات</li>
+                            <li>الدفع الإلكتروني: إضافة نظام حجز ودفع إلكتروني</li>
+                            <li>الصيانة الدورية: إنشاء جدول صيانة شامل</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>التوصيات النهائية</h4>
+                        <ul class="styled-list">
+                            <li>البدء فوراً في إصلاح البوابة المعطلة</li>
+                            <li>تطوير خطة صيانة شاملة للمرافق</li>
+                            <li>الاستثمار في أنظمة ذكية لإدارة المواقف</li>
+                            <li>تحسين تجربة المستخدم من خلال تطبيق إلكتروني</li>
+                            <li>التوسع في خدمات إضافية مثل شحن السيارات الكهربائية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>تم إعداد هذا التقرير بواسطة: <span class="author">Yousif Tariq</span></p>
+            <p>2026-04-27</p>
+        </div>
+        <div class="page-number">الصفحة 4 من 4</div>
+    </div>
+</body>
+</html>
